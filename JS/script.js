@@ -3,7 +3,7 @@ const gridContainer = document.querySelector('.container');
 const btn = document.querySelector('button');
 const startTxt = document.querySelector('.start-txt');
 const arrayCell =[100, 81, 49];
-const arrayBomb = [];
+let arrayBomb = [];
 const numBombs = 16;
 let numCell;
 let randomNumber = null;
@@ -33,14 +33,12 @@ function start(){
         randomNumber = Math.ceil(Math.random() * numCell);
         // console.log(randomNumber);
 
-        if(arrayBomb.includes(randomNumber)){
-            console.log("il numero" + randomNumber + "è già stato inserito");
-        }else{
+        if(!arrayBomb.includes(randomNumber)){
             arrayBomb.push(randomNumber);
         }
         console.log(arrayBomb);
         
-    }while(arrayBomb.length !== numBombs);
+    }while(arrayBomb.length < numBombs);
 
 
     
@@ -63,4 +61,5 @@ function getBox(indice){
 
 function reset(){
     gridContainer.innerHTML = '';
+    arrayBomb = [];
 }
