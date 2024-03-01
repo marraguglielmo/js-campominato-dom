@@ -6,6 +6,7 @@ const arrayCell =[100, 81, 49];
 const arrayBomb = [];
 const numBombs = 16;
 let numCell;
+let randomNumber = null;
 let counter;
 
 btn.addEventListener('click', start);
@@ -22,38 +23,34 @@ function start(){
     const difficult = document.getElementById('difficult').value;
     numCell = arrayCell[difficult];
 
-    // do{
-
-    // }
-
-    getRandomNumber();
-    console.log(getRandomNumber());
-    
     for(let i = 1; i <= numCell; i++){
         const square = getBox(i);
         gridContainer.append(square);
-
-        
     }
+
+
+    do{
+        randomNumber = Math.ceil(Math.random() * numCell);
+        // console.log(randomNumber);
+
+        arrayBomb.push(randomNumber);
+        console.log(arrayBomb);
+
+    }while(arrayBomb.includes(randomNumber) && arrayBomb.length !== numBombs);
 }
 
 function getBox(indice){
     const sq = document.createElement('div');
     sq.className = 'box';
     sq.classList.add('box'+ numCell);
-    sq.innerHTML = indice;
+    sq._sqID = indice;
 
     sq.addEventListener('click', function(){
         sq.classList.add('clicked');
-        console.log(this.innerHTML);
+        console.log(this._sqID);
     })
     
     return sq;
-}
-
-function getRandomNumber(){
-    const randomNumber = Math.ceil(Math.random() * numCell);
-    return randomNumber;
 }
 
 
