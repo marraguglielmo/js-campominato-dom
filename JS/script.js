@@ -51,19 +51,29 @@ function getBox(indice){
     sq._sqID = indice;
 
     sq.addEventListener('click', function(){
-        console.log(this._sqID);
+        // console.log(this._sqID);
 
+        //FINE GIOCO
         if(arrayBomb.includes(this._sqID)){
             sq.classList.add('red');
             console.log("hai perso");
-            //FINE GIOCO
+            const boxCollection = document.querySelectorAll('.box');
+            console.log(boxCollection);
             //accendo tutte le bombe
+            for(let i = 0; i < numCell; i++){
+                if(arrayBomb.includes(boxCollection[i]._sqID)){
+                    boxCollection[i].classList.add('red');
+                }
+            }
             //congelo la griglia
         }else{
             sq.classList.add('clicked');
             counter++;
             console.log(counter);
             console.log("continua");
+            if(counter === (numCell - numBombs)){
+                console.log('hai vinto');
+            }
         }
     })
     
@@ -74,4 +84,5 @@ function getBox(indice){
 function reset(){
     gridContainer.innerHTML = '';
     arrayBomb = [];
+    counter = 0;
 }

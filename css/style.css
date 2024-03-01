@@ -123,3 +123,7 @@ select{
 .hide{
     display: none;
 }
+
+.opacity{
+    opacity: .7;
+}
