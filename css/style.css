@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+img{
+    max-width: 100%;
+    width: 40px;
+    margin-right: 10px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 20px 20px;
+}
+
+main{
+    position: relative;
+    background-color: #6ED663;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+}
+
+footer{
+    background-color: #6fd663a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 0 10px;
+    font-size: .8rem;
+}
+
+button{
+    background-color:#021732;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 70px;
+    padding: 8px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: border-radius .1s ,box-shadow .2s;
+}
+
+button:hover{
+    border-radius: 30px;
+    box-shadow: 0px 5px 17px 0px rgb(153, 153, 153);
+}
+
+select{
+    background-color: transparent;
+    border: 1.5px solid #021732;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    aspect-ratio: 1;
+}
+
+.box{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border: 1.5px solid black;
+    cursor: pointer;
+}
+
+.box100{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.box81{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.box49{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.box.clicked{
+    background-color: #021732;
+    border-color: rgb(226, 219, 219);
+    color: white;
+}
+
+.start-txt{
+    width: fit-content;
+    font-size: 4em;
+}
+
+.hide{
+    display: none;
+}
