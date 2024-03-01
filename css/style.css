@@ -111,6 +111,10 @@ select{
     color: white;
 }
 
+.red{
+    background-color: #4B2F36;
+}
+
 .start-txt{
     width: fit-content;
     font-size: 4em;

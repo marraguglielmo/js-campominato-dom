@@ -7,7 +7,7 @@ let arrayBomb = [];
 const numBombs = 16;
 let numCell;
 let randomNumber = null;
-let counter;
+let counter = 0;
 
 btn.addEventListener('click', start);
 
@@ -51,8 +51,20 @@ function getBox(indice){
     sq._sqID = indice;
 
     sq.addEventListener('click', function(){
-        sq.classList.add('clicked');
         console.log(this._sqID);
+
+        if(arrayBomb.includes(this._sqID)){
+            sq.classList.add('red');
+            console.log("hai perso");
+            //FINE GIOCO
+            //accendo tutte le bombe
+            //congelo la griglia
+        }else{
+            sq.classList.add('clicked');
+            counter++;
+            console.log(counter);
+            console.log("continua");
+        }
     })
     
     return sq;
