@@ -31,12 +31,19 @@ function start(){
 
     do{
         randomNumber = Math.ceil(Math.random() * numCell);
-        // console.log(randomNumber);
+        console.log(randomNumber);
 
-        arrayBomb.push(randomNumber);
-        console.log(arrayBomb);
+        if(arrayBomb.includes(randomNumber)){
+            console.log("il numero è già stato inserito");
+        }else{
+            arrayBomb.push(randomNumber);
+            console.log(arrayBomb);
+        }
+        
+    }while(arrayBomb.length !== numBombs);
 
-    }while(arrayBomb.includes(randomNumber) && arrayBomb.length !== numBombs);
+
+    
 }
 
 function getBox(indice){
