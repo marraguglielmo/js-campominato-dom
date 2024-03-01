@@ -31,14 +31,14 @@ function start(){
 
     do{
         randomNumber = Math.ceil(Math.random() * numCell);
-        console.log(randomNumber);
+        // console.log(randomNumber);
 
         if(arrayBomb.includes(randomNumber)){
-            console.log("il numero è già stato inserito");
+            console.log("il numero" + randomNumber + "è già stato inserito");
         }else{
             arrayBomb.push(randomNumber);
-            console.log(arrayBomb);
         }
+        console.log(arrayBomb);
         
     }while(arrayBomb.length !== numBombs);
 
