@@ -2,6 +2,8 @@
 const gridContainer = document.querySelector('.container');
 const btn = document.querySelector('button');
 const startTxt = document.querySelector('.start-txt');
+const result1 = document.querySelector('.result-1');
+const result2 = document.querySelector('.result-2');
 const arrayCell =[100, 81, 49];
 let arrayBomb = [];
 const numBombs = 16;
@@ -31,14 +33,13 @@ function start(){
 
     do{
         randomNumber = Math.ceil(Math.random() * numCell);
-        // console.log(randomNumber);
 
         if(!arrayBomb.includes(randomNumber)){
             arrayBomb.push(randomNumber);
         }
-        console.log(arrayBomb);
         
     }while(arrayBomb.length < numBombs);
+    console.log(arrayBomb);
 
 
     
@@ -51,28 +52,37 @@ function getBox(indice){
     sq._sqID = indice;
 
     sq.addEventListener('click', function(){
-        // console.log(this._sqID);
 
         //FINE GIOCO
         if(arrayBomb.includes(this._sqID)){
             sq.classList.add('red');
-            console.log("hai perso");
             const boxCollection = document.querySelectorAll('.box');
-            console.log(boxCollection);
             //accendo tutte le bombe
             for(let i = 0; i < numCell; i++){
                 if(arrayBomb.includes(boxCollection[i]._sqID)){
                     boxCollection[i].classList.add('red');
+                    gridContainer.classList.add('disabled');
+                    result1.classList.remove('hide');
+                    result1.innerHTML = 'HAI PERSO';
+                    result1.classList.add('txt-result1');
+                    result2.innerHTML = `Punteggio: ${counter}`;
+                    result2.classList.remove('hide');
+                    result2.classList.add('txt-result2');
+                    
+                    boxCollection[i].classList.add('opacity');
                 }
+                
             }
             //congelo la griglia
+            
         }else{
             sq.classList.add('clicked');
             counter++;
-            console.log(counter);
-            console.log("continua");
+            sq.classList.add('disabled');
             if(counter === (numCell - numBombs)){
-                console.log('hai vinto');
+                result1.innerHTML = 'HAI VINTO!!!';
+                result1.classList.add('txt-win');
+                result1.classList.remoe('hide');
             }
         }
     })
@@ -85,4 +95,9 @@ function reset(){
     gridContainer.innerHTML = '';
     arrayBomb = [];
     counter = 0;
+    gridContainer.classList.remove('disabled');
+    result1.classList.add('hide');
+    result2.classList.add('hide');
+
+
 }

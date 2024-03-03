@@ -115,6 +115,34 @@ select{
     background-color: #4B2F36;
 }
 
+.txt-result1{
+    position: absolute;
+    font-size: 5rem;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #4B2F36;
+    color: #b12121;
+}
+
+.txt-result2{
+    position: absolute;
+    font-size: 2.5rem;
+    bottom: 25%;
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.txt-win{
+    color: rgb(92, 221, 92);
+    position: absolute;
+    font-size: 5rem;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: #094b14;
+}
+
 .start-txt{
     width: fit-content;
     font-size: 4em;
@@ -122,6 +150,10 @@ select{
 
 .hide{
     display: none;
+}
+
+.disabled{
+    pointer-events:none;
 }
 
 .opacity{
